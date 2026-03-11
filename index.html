@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">&lt;title&gt;Pixasi — Tech &amp; AI Tools Reviews&lt;/title&gt;</p>
+<p class="p1">&lt;link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Syne:wght@400;700;800&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--cyan: #00F5D4;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--cyan-dim: rgba(0,245,212,0.15);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--red: #FF3B3B;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--dark: #050507;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--dark2: #0C0C10;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--dark3: #111116;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--border: rgba(255,255,255,0.06);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--text: #E8E8F0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--text-dim: rgba(232,232,240,0.45);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>* { margin: 0; padding: 0; box-sizing: border-box; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>html { scroll-behavior: smooth; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>body { background: var(--dark); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; cursor: none; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>#cur { position: fixed; width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; pointer-events: none; z-index: 9999; transition: transform 0.1s; box-shadow: 0 0 12px var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>#cur-ring { position: fixed; width: 32px; height: 32px; border: 1px solid var(--cyan); border-radius: 50%; pointer-events: none; z-index: 9998; opacity: 0.4; transition: all 0.25s ease; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>body::before { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); pointer-events: none; z-index: 1000; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; padding: 24px 60px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>nav.scrolled { background: rgba(5,5,7,0.92); backdrop-filter: blur(20px); padding: 16px 60px; border-bottom: 1px solid var(--border); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em; text-decoration: none; color: var(--text); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav-logo span { color: var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav-links { display: flex; gap: 36px; list-style: none; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav-links a { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-dim); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav-links a:hover { color: var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav-btn { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--dark); background: var(--cyan); padding: 10px 20px; text-decoration: none; transition: all 0.2s; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav-btn:hover { background: #fff; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 0 60px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-glow { position: absolute; width: 700px; height: 700px; background: radial-gradient(circle, rgba(0,245,212,0.07) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); animation: pulse 4s ease-in-out infinite; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes pulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; } 50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; } }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bracket { position: absolute; width: 40px; height: 40px; opacity: 0.3; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bracket-tl { top: 100px; left: 60px; border-top: 1px solid var(--cyan); border-left: 1px solid var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bracket-tr { top: 100px; right: 60px; border-top: 1px solid var(--cyan); border-right: 1px solid var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bracket-bl { bottom: 60px; left: 60px; border-bottom: 1px solid var(--cyan); border-left: 1px solid var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bracket-br { bottom: 60px; right: 60px; border-bottom: 1px solid var(--cyan); border-right: 1px solid var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-content { position: relative; z-index: 2; max-width: 900px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-tag { display: inline-flex; align-items: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--cyan); letter-spacing: 0.1em; margin-bottom: 32px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.3s; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(56px, 10vw, 130px); line-height: 0.92; letter-spacing: -0.03em; margin-bottom: 8px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-title .line2 { display: block; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.2); font-size: clamp(52px, 9vw, 120px); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-title .accent { color: var(--cyan); -webkit-text-stroke: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-sub { margin-top: 36px; font-size: 16px; font-weight: 300; line-height: 1.8; color: var(--text-dim); max-width: 500px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.7s; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-cta { margin-top: 48px; display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s ease forwards 0.9s; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-cyan { display: inline-flex; align-items: center; gap: 10px; background: var(--cyan); color: var(--dark); font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-decoration: none; padding: 16px 32px; transition: all 0.2s; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-cyan:hover { background: #fff; transform: translateY(-2px); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-outline { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(255,255,255,0.15); color: var(--text); font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.05em; text-decoration: none; padding: 16px 32px; transition: all 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.ticker { background: var(--cyan); padding: 12px 0; overflow: hidden; white-space: nowrap; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.ticker-inner { display: inline-flex; animation: ticker 25s linear infinite; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.ticker-item { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--dark); font-weight: 700; letter-spacing: 0.1em; padding: 0 40px; text-transform: uppercase; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.ticker-dot { color: rgba(5,5,7,0.4); padding: 0 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.about { padding: 120px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1300px; margin: 0 auto; align-items: center; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.mono-label { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--cyan); letter-spacing: 0.1em; margin-bottom: 24px; display: block; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.about-left h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 52px); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 28px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.about-left h2 em { font-style: normal; color: var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.about-left p { font-size: 15px; line-height: 1.9; color: var(--text-dim); margin-bottom: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.about-cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.about-card { background: var(--dark3); border: 1px solid var(--border); padding: 36px; position: relative; overflow: hidden; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.about-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--cyan), transparent); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.about-card-num { font-family: 'Syne', sans-serif; font-size: 70px; font-weight: 800; color: var(--cyan); line-height: 1; opacity: 0.1; position: absolute; top: 16px; right: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.about-card h3 { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.about-card p { font-size: 13px; line-height: 1.8; color: var(--text-dim); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.categories { background: var(--dark2); padding: 100px 60px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.section-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap; gap: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.section-head h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(28px, 4vw, 48px); letter-spacing: -0.02em; line-height: 1.1; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cat-card { background: var(--dark3); border: 1px solid var(--border); padding: 40px 36px; position: relative; overflow: hidden; transition: all 0.3s; cursor: none; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cat-card:hover { border-color: var(--cyan); background: rgba(0,245,212,0.03); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cat-icon { font-size: 36px; margin-bottom: 24px; display: block; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cat-num { position: absolute; top: 24px; right: 24px; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-dim); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cat-card h3 { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cat-card p { font-size: 13px; line-height: 1.8; color: var(--text-dim); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cat-tag { display: inline-block; margin-top: 20px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--cyan); letter-spacing: 0.1em; border: 1px solid rgba(0,245,212,0.3); padding: 4px 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.latest { padding: 100px 60px; max-width: 1300px; margin: 0 auto; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-showcase { display: grid; grid-template-columns: 2fr 1fr; gap: 2px; margin-top: 50px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-main { position: relative; aspect-ratio: 16/9; background: var(--dark3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-main::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,245,212,0.04), transparent 60%); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-grid-overlay { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,245,212,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,212,0.03) 1px, transparent 1px); background-size: 30px 30px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-play { position: relative; z-index: 2; width: 70px; height: 70px; border: 1px solid var(--cyan); display: flex; align-items: center; justify-content: center; transition: all 0.3s; clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); cursor: pointer; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-play:hover { background: var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-play:hover svg { fill: var(--dark); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-play svg { fill: var(--cyan); margin-left: 4px; transition: fill 0.3s; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-label { position: absolute; bottom: 20px; left: 24px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-badge { position: absolute; top: 20px; left: 24px; background: var(--red); font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; color: #fff; padding: 4px 10px; letter-spacing: 0.05em; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-sidebar { display: flex; flex-direction: column; gap: 2px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-mini { flex: 1; background: var(--dark3); border: 1px solid var(--border); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; transition: border-color 0.3s; cursor: pointer; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-mini:hover { border-color: rgba(0,245,212,0.3); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-mini-tag { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--cyan); letter-spacing: 0.1em; margin-bottom: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-mini h4 { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.video-mini span { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-dim); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.tools { background: var(--dark2); padding: 100px 60px; border-top: 1px solid var(--border); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.tools-inner { max-width: 1300px; margin: 0 auto; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.tools-marquee { overflow: hidden; margin-top: 50px; padding: 30px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.tools-track { display: inline-flex; animation: marquee 20s linear infinite; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.tool-pill { font-family: 'Space Mono', monospace; font-size: 13px; color: var(--text-dim); padding: 0 40px; border-right: 1px solid var(--border); white-space: nowrap; transition: color 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.tool-pill:hover { color: var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.tool-pill.hl { color: var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cta { padding: 140px 60px; text-align: center; position: relative; overflow: hidden; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cta-bg-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(80px, 18vw, 220px); color: rgba(255,255,255,0.02); white-space: nowrap; pointer-events: none; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cta-inner { position: relative; z-index: 2; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cta h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(36px, 6vw, 80px); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cta h2 span { color: var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.cta p { font-size: 15px; color: var(--text-dim); margin-bottom: 48px; max-width: 460px; margin-left: auto; margin-right: auto; line-height: 1.8; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>footer { background: var(--dark2); border-top: 1px solid var(--border); padding: 50px 60px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.footer-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em; color: var(--text); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.footer-logo span { color: var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.footer-links { display: flex; gap: 28px; list-style: none; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.footer-links a { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-dim); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.footer-links a:hover { color: var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.footer-copy { font-family: 'Space Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.15); letter-spacing: 0.05em; width: 100%; text-align: center; margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--border); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.reveal.visible { opacity: 1; transform: translateY(0); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.status-dot { display: inline-block; width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; margin-right: 8px; animation: blink 1.5s ease infinite; box-shadow: 0 0 6px var(--cyan); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@media (max-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nav { padding: 20px 24px; } nav.scrolled { padding: 14px 24px; } .nav-links { display: none; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero { padding: 0 24px; } .about { grid-template-columns: 1fr; padding: 80px 24px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.about-cards-grid { grid-template-columns: 1fr; } .categories { padding: 80px 24px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cat-grid { grid-template-columns: 1fr; } .latest { padding: 80px 24px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.video-showcase { grid-template-columns: 1fr; } .tools { padding: 80px 24px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cta { padding: 100px 24px; } footer { padding: 40px 24px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;div id="cur"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;div id="cur-ring"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;nav id="nav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="#" class="nav-logo"&gt;PIX&lt;span&gt;A&lt;/span&gt;SI&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;ul class="nav-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="#categories"&gt;Reviews&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="#videos"&gt;Videos&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="https://youtube.com/@Pixasi" target="_blank" class="nav-btn"&gt;▶ Subscribe&lt;/a&gt;</p>
+<p class="p1">&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section class="hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-grid"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-glow"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="bracket bracket-tl"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="bracket bracket-tr"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="bracket bracket-bl"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="bracket bracket-br"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-tag"&gt;&lt;span class="status-dot"&gt;&lt;/span&gt;Tech Reviews · AI Tools · Honest Takes&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1 class="hero-title"&gt;THE FUTURE&lt;br&gt;&lt;span class="line2"&gt;IS &lt;span class="accent"&gt;NOW.&lt;/span&gt;&lt;/span&gt;&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="hero-sub"&gt;Cutting through the hype. In-depth reviews of AI tools, software, and tech that actually matters — so you know what's worth your time and money.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-cta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="https://youtube.com/@Pixasi" target="_blank" class="btn-cyan"&gt;▶ Watch on YouTube&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#categories" class="btn-outline"&gt;Browse Reviews →&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="ticker"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="ticker-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;ChatGPT &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;Midjourney &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;Claude AI &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;MacBook Pro &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;Gemini &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;Cursor IDE &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;Notion AI &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;DaVinci Resolve &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;Perplexity &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;ElevenLabs &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;ChatGPT &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;Midjourney &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;Claude AI &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;MacBook Pro &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;Gemini &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;Cursor IDE &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;Notion AI &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;DaVinci Resolve &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;Perplexity &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="ticker-item"&gt;ElevenLabs &lt;span class="ticker-dot"&gt;◆&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section class="about" id="about"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="about-left reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="mono-label"&gt;// WHO IS PIXASI&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;No fluff.&lt;br&gt;No paid promos.&lt;br&gt;&lt;em&gt;Just the truth.&lt;/em&gt;&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Pixasi is a tech and AI review channel built for people who want to know if something is actually worth using — before spending time or money on it.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Every review is hands-on, research-backed, and straight to the point. From AI writing tools to productivity apps to the latest hardware — if it's hyped, we test it.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p style="font-family:'Space Mono',monospace;font-size:12px;color:var(--cyan);"&gt;📍 Dubai, UAE &amp;nbsp;|&amp;nbsp; 🎬 YouTube + Instagram @Pixasi&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="about-right reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="about-cards-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="about-card"&gt;&lt;div class="about-card-num"&gt;01&lt;/div&gt;&lt;h3&gt;Honest Reviews&lt;/h3&gt;&lt;p&gt;Every tool tested for real. No sponsored bias, no sugarcoating.&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="about-card"&gt;&lt;div class="about-card-num"&gt;02&lt;/div&gt;&lt;h3&gt;AI Focused&lt;/h3&gt;&lt;p&gt;Deep dives into the tools reshaping how we work and create.&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="about-card"&gt;&lt;div class="about-card-num"&gt;03&lt;/div&gt;&lt;h3&gt;Clear Verdict&lt;/h3&gt;&lt;p&gt;Every video ends with a buy / skip / wait recommendation.&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="about-card"&gt;&lt;div class="about-card-num"&gt;04&lt;/div&gt;&lt;h3&gt;Stay Ahead&lt;/h3&gt;&lt;p&gt;Latest tools covered fast, so you're never behind the curve.&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section class="categories" id="categories"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div style="max-width:1300px;margin:0 auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-head reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;&lt;span class="mono-label"&gt;// WHAT WE COVER&lt;/span&gt;&lt;h2&gt;Review&lt;br&gt;Categories&lt;/h2&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="cat-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="cat-card reveal"&gt;&lt;span class="cat-num"&gt;01&lt;/span&gt;&lt;span class="cat-icon"&gt;🤖&lt;/span&gt;&lt;h3&gt;AI Writing &amp; Chat Tools&lt;/h3&gt;&lt;p&gt;ChatGPT, Claude, Gemini, Perplexity and every AI assistant worth knowing — compared head to head.&lt;/p&gt;&lt;span class="cat-tag"&gt;MOST REVIEWED&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="cat-card reveal"&gt;&lt;span class="cat-num"&gt;02&lt;/span&gt;&lt;span class="cat-icon"&gt;🎨&lt;/span&gt;&lt;h3&gt;AI Image &amp; Video Tools&lt;/h3&gt;&lt;p&gt;Midjourney, DALL·E, Runway, Sora — the creative AI stack reviewed honestly and visually.&lt;/p&gt;&lt;span class="cat-tag"&gt;HOT RIGHT NOW&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="cat-card reveal"&gt;&lt;span class="cat-num"&gt;03&lt;/span&gt;&lt;span class="cat-icon"&gt;💻&lt;/span&gt;&lt;h3&gt;Laptops &amp; Hardware&lt;/h3&gt;&lt;p&gt;MacBooks, Windows laptops, and peripherals — real-world tested for creators and professionals.&lt;/p&gt;&lt;span class="cat-tag"&gt;POPULAR&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="cat-card reveal"&gt;&lt;span class="cat-num"&gt;04&lt;/span&gt;&lt;span class="cat-icon"&gt;⚡&lt;/span&gt;&lt;h3&gt;Productivity Apps&lt;/h3&gt;&lt;p&gt;Notion, Obsidian, Linear, Cursor — the tools that actually make you more productive, reviewed.&lt;/p&gt;&lt;span class="cat-tag"&gt;WEEKLY&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="cat-card reveal"&gt;&lt;span class="cat-num"&gt;05&lt;/span&gt;&lt;span class="cat-icon"&gt;📱&lt;/span&gt;&lt;h3&gt;Smartphones &amp; Gadgets&lt;/h3&gt;&lt;p&gt;Latest phones, earbuds, and gear — no-nonsense reviews for smart buyers.&lt;/p&gt;&lt;span class="cat-tag"&gt;TRENDING&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="cat-card reveal"&gt;&lt;span class="cat-num"&gt;06&lt;/span&gt;&lt;span class="cat-icon"&gt;🔧&lt;/span&gt;&lt;h3&gt;Dev &amp; Creator Tools&lt;/h3&gt;&lt;p&gt;Code editors, video editing software, design tools — built for the people who build things.&lt;/p&gt;&lt;span class="cat-tag"&gt;DEEP DIVES&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section class="latest" id="videos"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section-head reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;&lt;span class="mono-label"&gt;// LATEST CONTENT&lt;/span&gt;&lt;h2&gt;Watch &amp;&lt;br&gt;Decide.&lt;/h2&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://youtube.com/@Pixasi" target="_blank" class="btn-outline" style="height:fit-content;"&gt;View All →&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="video-showcase"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="video-main reveal" onclick="window.open('https://youtube.com/@Pixasi','_blank')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="video-grid-overlay"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="video-badge"&gt;● LATEST&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="video-play"&gt;&lt;svg width="22" height="22" viewBox="0 0 24 24"&gt;&lt;path d="M8 5v14l11-7z"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="video-label"&gt;PIXASI — YOUTUBE.COM/@PIXASI&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="video-sidebar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="video-mini reveal" onclick="window.open('https://youtube.com/@Pixasi','_blank')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;div class="video-mini-tag"&gt;AI TOOLS&lt;/div&gt;&lt;h4&gt;Best AI Tools to Use in 2025 — Full Breakdown&lt;/h4&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;COMING SOON&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="video-mini reveal" onclick="window.open('https://youtube.com/@Pixasi','_blank')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;div class="video-mini-tag"&gt;HARDWARE&lt;/div&gt;&lt;h4&gt;MacBook Air M4 — Is It Worth It for Creators?&lt;/h4&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;COMING SOON&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="video-mini reveal" onclick="window.open('https://youtube.com/@Pixasi','_blank')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;&lt;div class="video-mini-tag"&gt;REVIEW&lt;/div&gt;&lt;h4&gt;ChatGPT vs Claude vs Gemini — Which One Wins?&lt;/h4&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;COMING SOON&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section class="tools"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="tools-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-head reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;&lt;span class="mono-label"&gt;// TOOLS WE'VE REVIEWED&lt;/span&gt;&lt;h2&gt;The Stack.&lt;/h2&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tools-marquee"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="tools-track"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tool-pill hl"&gt;ChatGPT&lt;/span&gt;&lt;span class="tool-pill"&gt;Claude AI&lt;/span&gt;&lt;span class="tool-pill hl"&gt;Midjourney&lt;/span&gt;&lt;span class="tool-pill"&gt;Notion AI&lt;/span&gt;&lt;span class="tool-pill"&gt;MacBook Pro M4&lt;/span&gt;&lt;span class="tool-pill hl"&gt;Cursor IDE&lt;/span&gt;&lt;span class="tool-pill"&gt;Gemini&lt;/span&gt;&lt;span class="tool-pill"&gt;Runway ML&lt;/span&gt;&lt;span class="tool-pill hl"&gt;ElevenLabs&lt;/span&gt;&lt;span class="tool-pill"&gt;Perplexity AI&lt;/span&gt;&lt;span class="tool-pill"&gt;DaVinci Resolve&lt;/span&gt;&lt;span class="tool-pill hl"&gt;Sora&lt;/span&gt;&lt;span class="tool-pill"&gt;Obsidian&lt;/span&gt;&lt;span class="tool-pill"&gt;Galaxy S25&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tool-pill hl"&gt;ChatGPT&lt;/span&gt;&lt;span class="tool-pill"&gt;Claude AI&lt;/span&gt;&lt;span class="tool-pill hl"&gt;Midjourney&lt;/span&gt;&lt;span class="tool-pill"&gt;Notion AI&lt;/span&gt;&lt;span class="tool-pill"&gt;MacBook Pro M4&lt;/span&gt;&lt;span class="tool-pill hl"&gt;Cursor IDE&lt;/span&gt;&lt;span class="tool-pill"&gt;Gemini&lt;/span&gt;&lt;span class="tool-pill"&gt;Runway ML&lt;/span&gt;&lt;span class="tool-pill hl"&gt;ElevenLabs&lt;/span&gt;&lt;span class="tool-pill"&gt;Perplexity AI&lt;/span&gt;&lt;span class="tool-pill"&gt;DaVinci Resolve&lt;/span&gt;&lt;span class="tool-pill hl"&gt;Sora&lt;/span&gt;&lt;span class="tool-pill"&gt;Obsidian&lt;/span&gt;&lt;span class="tool-pill"&gt;Galaxy S25&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section class="cta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="cta-bg-text"&gt;PIXASI&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="cta-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="mono-label reveal"&gt;&lt;span class="status-dot"&gt;&lt;/span&gt;NEW VIDEOS EVERY WEEK&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="reveal"&gt;Stop guessing.&lt;br&gt;Start &lt;span&gt;knowing.&lt;/span&gt;&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="reveal"&gt;Subscribe to Pixasi and stay ahead of every tool, every trend, and every tech decision.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="reveal"&gt;&lt;a href="https://youtube.com/@Pixasi" target="_blank" class="btn-cyan"&gt;▶ Subscribe on YouTube&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="footer-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="footer-logo"&gt;PIX&lt;span&gt;A&lt;/span&gt;SI&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul class="footer-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="https://youtube.com/@Pixasi" target="_blank"&gt;YouTube&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="https://instagram.com/Pixasi" target="_blank"&gt;Instagram&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#categories"&gt;Reviews&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="footer-copy"&gt;© 2026 PIXASI — DUBAI, UAE. ALL RIGHTS RESERVED.&lt;/div&gt;</p>
+<p class="p1">&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const cur = document.getElementById('cur'), ring = document.getElementById('cur-ring');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let mx=0,my=0,rx=0,ry=0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.addEventListener('mousemove',e=&gt;{mx=e.clientX;my=e.clientY;cur.style.left=mx-4+'px';cur.style.top=my-4+'px';});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>(function animRing(){rx+=(mx-rx)*0.13;ry+=(my-ry)*0.13;ring.style.left=rx-16+'px';ring.style.top=ry-16+'px';requestAnimationFrame(animRing);})();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('a,button,.cat-card,.video-main,.video-mini').forEach(el=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el.addEventListener('mouseenter',()=&gt;{cur.style.transform='scale(3)';ring.style.transform='scale(1.5)';ring.style.opacity='0.8';});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el.addEventListener('mouseleave',()=&gt;{cur.style.transform='scale(1)';ring.style.transform='scale(1)';ring.style.opacity='0.4';});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const nav=document.getElementById('nav');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>window.addEventListener('scroll',()=&gt;nav.classList.toggle('scrolled',window.scrollY&gt;60));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const obs=new IntersectionObserver(entries=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>entries.forEach((e,i)=&gt;{if(e.isIntersecting)setTimeout(()=&gt;e.target.classList.add('visible'),i*100);});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},{threshold:0.08});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.reveal').forEach(el=&gt;obs.observe(el));</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
